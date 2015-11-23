@@ -1,0 +1,28 @@
+<h1>Locations</h1>
+<h3>Date: <%= @locations["date"]%></h3>
+<table width = "1000" border = '1'>
+    <tr>
+        <td align = "center">ID</td>
+        <td align = "center">Lattitude</td>
+        <td align = "center">Longitude</td>
+        <td align = "center">LastUpdate</td>
+    </tr>
+    <% @locations["locations"].each do |l| %>
+        <tr>
+        <td align = "center"><%= l["id"]%></td>
+        <td align = "center"><%= l["lat"]%></td>
+        <td align = "center"><%= l["lon"]%></td>
+        <td align = "center"><%= l["last_update"]%></td>
+        </tr>
+    <% end %>
+</table>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<h1>Data by Postcode</h1>
+<h3>Date: <%= @postcode_data["date"]%></h3>
+
+	<% for i in 0...@postcode_data["locations"].length %>
+	    <table width = "1000" border = "1">
+		<h4>Location ID: <%= @postcode_data["locations"][i]['id'] %></h4>
+    	<h4>Lattitude: <%= @postcode_data["locations"][i]['lat'] %></h4>
+    	<h4>Longitude: <%= @postcode_data["locations"][i]['lon'] %></h4>
+    	<h4>Last Update Time: <%= @postcode_data["locations"][i]['last_update'] %></h4>
+    	<tr>
+			<td align = "center">Time</td>
+			<td align = "center">Temperature</td>
+			<td align = "center">Precipitation</td>
+			<td align = "center">Wind Direction</td>
+			<td align = "center">Wind Speed</td>
+		</tr>
+		<% for j in 0...@postcode_data["locations"][i]["measurements"].length %>
+		
+		<tr>
+			<td align = "center">Time<%= @postcode_data["locations"][i]["measurements"][j]["time"] %></td>
+			<td align = "center"><%= @postcode_data["locations"][i]["measurements"][j]["temp"] %></td>
+			<td align = "center"><%= @postcode_data["locations"][i]["measurements"][j]["precip"] %></td>
+			<td align = "center"><%= @postcode_data["locations"][i]["measurements"][j]["wind_direction"] %></td>
+			<td align = "center"><%= @postcode_data["locations"][i]["measurements"][j]["wind_speed"] %></td>
+		<% end %>
+	</table>
+	<% end %>

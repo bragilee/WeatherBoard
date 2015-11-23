@@ -1,0 +1,22 @@
+<h1>Data by Location</h1>
+<h3>Date: <%= @location_data["date"]%></h3>
+<h3>Current Temperature: <%= @location_data["current_temp"]%> </h3>
+<h3>Current Condition: <%= @location_data["current_cond"]%></h3>
+<table width = "1000" border = '1' >
+	<tr>
+		<td align = "center">Time</td>
+		<td align = "center">Temperature</td>
+		<td align = "center">Precipitation</td>
+		<td align = "center">Wind Direction</td>
+		<td align = "center">Wind Speed</td>
+	</tr>
+	<% for i in 0...@location_data["measurements"].length %>
+	<tr>
+		<td align = "center"><%= @location_data["measurements"][i]["time"] %></td>
+		<td align = "center"><%= @location_data["measurements"][i]["temp"] %></td>
+		<td align = "center"><%= @location_data["measurements"][i]["precip"] %></td>
+		<td align = "center"><%= @location_data["measurements"][i]["wind_direction"] %></td>
+		<td align = "center"><%= @location_data["measurements"][i]["wind_speed"] %></td>
+	</tr>
+	<% end %>
+</table>

@@ -1,0 +1,41 @@
+<h1>Prediction by LatLong</h1>
+<h3>Lattitude: <%= @prediction_lat_lon[:lattitude] %></h3>
+<h3>Longitude: <%= @prediction_lat_lon[:longitude] %></h3>
+<table width = "1000" border = "1">
+	<tr>
+		<td align = "center">Prediction Period</td>
+		<td align = "center">Time</td>
+		<td colspan = 2 align = "center">Precipitation</td>
+		<td colspan = 2 align = "center">Temperature</td>
+		<td colspan = 2 align = "center">Wind Direction</td>
+		<td colspan = 2 align = "center">Wind Speed</td>
+	</tr>
+	<tr>
+		<td align = "center"></td>
+		<td align = "center"></td>
+		<td align = "center">Value(mm)</td>
+		<td align = "center">Probability</td>
+		<td align = "center">Value</td>
+		<td align = "center">Probability</td>
+		<td align = "center">Value</td>
+		<td align = "center">Probability</td>
+		<td align = "center">Value</td>
+		<td align = "center">Probability</td>
+	</tr>
+
+	<% @prediction_lat_lon[:predictions].each do |key,value| %>
+	<tr>
+		<td align = "center"><%= "#{key}" %></td>
+		<td align = "center"><%= value[:time] %></td>
+		<td align = "center"><%= value[:rain][:value] %></td>
+		<td align = "center"><%= value[:rain][:probablity] %></td>
+		<td align = "center"><%= value[:temperature][:value] %></td>
+		<td align = "center"><%= value[:temperature][:probablity] %></td>			
+		<td align = "center"><%= value[:winddirection][:value] %></td>
+		<td align = "center"><%= value[:winddirection][:probablity] %></td>
+		<td align = "center"><%= value[:windspeed][:value] %></td>
+		<td align = "center"><%= value[:windspeed][:probablity] %></td>
+	</tr>
+	<% end %>
+</table>
+
